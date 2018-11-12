@@ -30,7 +30,7 @@ int calcInches(int a_distance)
  m_LeftFront.move_relative(a_distance,100);
  }
 
-void autonomous()
+void autonomous_1()
 {
   baseMove(1);
   void turnangle(double idegtarget);

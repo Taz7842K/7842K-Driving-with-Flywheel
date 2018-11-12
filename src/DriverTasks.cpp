@@ -2,6 +2,7 @@
 #include "MotorConfig.h"
 
 int FlywheelPower;
+int lifthold;
 
 pros::Motor m_Flywheel(10);
 
@@ -21,7 +22,7 @@ void FlywheelControlTask(void*)
   {
     if(flywheelOn)
     {
-      for(int FlywheelPower = 0;  FlywheelPower < 127 && flywheelOn; FlywheelPower++)
+      for(int FlywheelPower = 0;  FlywheelPower < 127 && flywheelOn; FlywheelPower+= 7)
       {
         m_Flywheel.move(FlywheelPower);
         pros::delay (50);
@@ -41,42 +42,51 @@ void FlywheelControlTask(void*)
   {
     while(true)
     {
-      if(JoystickMain.get_digital(DIGITAL_R2))
+      if(JoystickMain.get_digital(DIGITAL_R2))      //Intake
       {
         m_Intake.move(-115);
       }
 
-      else if(JoystickMain.get_digital(DIGITAL_R1))
+      else if(JoystickMain.get_digital(DIGITAL_R1)) //Intake and Indexer
 
       {
         m_Indexer.move(-115);
         m_Intake.move(-115);
       }
 
-      else if (JoystickMain.get_digital(DIGITAL_Y))
+      else if(JoystickMain.get_digital(DIGITAL_L2))//Intake and Indexer Reverse
+
+      {
+        m_Indexer.move(115);
+        m_Intake.move(115);
+      }
+
+      else if (JoystickMain.get_digital(DIGITAL_Y))//Arm Forward
       {
         m_Arm.move(115);
+          lifthold = 0;
       }
 
-      else if (JoystickMain.get_digital(DIGITAL_X))
+      else if (JoystickMain.get_digital(DIGITAL_X))//Arm Back
       {
         m_Arm.move(-115);
+        lifthold = 5;
       }
 
-      else if (JoystickMain.get_digital(DIGITAL_A))
+      else if (JoystickMain.get_digital(DIGITAL_A))//On Flywheel
       {
         flywheelOn = true;
       }
-      else if (JoystickMain.get_digital(DIGITAL_B))
+      else if (JoystickMain.get_digital(DIGITAL_B))//Off Flywheel
       {
         flywheelOn = false;
       }
 
-      else
+      else                                        //Motors off
       {
         m_Indexer.move(0);
         m_Intake.move(0);
-        m_Arm.move(0);
+        m_Arm = lifthold;
       }
 
       pros::delay(20);
