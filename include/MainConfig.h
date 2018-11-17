@@ -14,8 +14,6 @@ extern pros::Motor m_Arm;
 
 extern pros::Controller JoystickMain;
 
-void FlywheelControl(void*);
-
-extern void autonomous_2(void*);
-
 extern bool flywheelOn;
+extern bool baseControlTaskOn;
+extern bool simpleControlTaskOn;

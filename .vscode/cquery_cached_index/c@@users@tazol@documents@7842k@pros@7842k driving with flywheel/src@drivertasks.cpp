@@ -1,8 +1,9 @@
 #include "main.h"
 #include "MotorConfig.h"
 
-int FlywheelPower;
-int lifthold;
+int FlywheelPower = 0;
+int armhold = 0;
+
 
 pros::Motor m_Flywheel(10);
 
@@ -64,15 +65,12 @@ void FlywheelControlTask(void*)
       else if (JoystickMain.get_digital(DIGITAL_Y))//Arm Forward
       {
         m_Arm.move(115);
-          lifthold = 0;
       }
 
       else if (JoystickMain.get_digital(DIGITAL_X))//Arm Back
       {
         m_Arm.move(-115);
-        lifthold = 5;
       }
-
       else if (JoystickMain.get_digital(DIGITAL_A))//On Flywheel
       {
         flywheelOn = true;
@@ -86,9 +84,19 @@ void FlywheelControlTask(void*)
       {
         m_Indexer.move(0);
         m_Intake.move(0);
-        m_Arm = lifthold;
+        m_Arm.move(0);
       }
 
       pros::delay(20);
+
+      }
+    }
+
+/*
+  void armTask(void*)
+  {
+    while(1==1)
+
     }
   }
+*/

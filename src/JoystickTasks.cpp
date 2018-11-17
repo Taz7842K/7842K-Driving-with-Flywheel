@@ -1,5 +1,5 @@
 #include "main.h"
-#include "MotorConfig.h"
+#include "MainConfig.h"
 
 int Joystickch4;
 int Joystickch2;
@@ -14,25 +14,33 @@ void MoveMotors(int, int);
 
 void Joystickcontroltask(void*)
 {
+ while (true)
+ {
 
-  while (true)
+  if(baseControlTaskOn)
   {
-  Joystickch4 = JoystickMain.get_analog(ANALOG_LEFT_X);
-  Joystickch2 = JoystickMain.get_analog(ANALOG_RIGHT_Y);
+    Joystickch4 = JoystickMain.get_analog(ANALOG_LEFT_X);
+    Joystickch2 = JoystickMain.get_analog(ANALOG_RIGHT_Y);
 
     MoveMotors(Joystickch4 + Joystickch2, Joystickch4 - Joystickch2);
 
-      pros::delay(20);
-  }
+   }
+   else
+   {
 
+   }
+
+   pros::delay(20);
+
+ }
 }
 
 void MoveMotors(int rightspeed, int leftspeed)
 {
 
- m_LeftFront.move(rightspeed);
- m_RightFront.move(leftspeed);
- m_LeftRear.move(rightspeed);
- m_RightRear.move(leftspeed);
+ m_LeftFront.move(rightspeed*1);
+ m_RightFront.move(leftspeed*1);
+ m_LeftRear.move(rightspeed*1);
+ m_RightRear.move(leftspeed*1);
 
 }

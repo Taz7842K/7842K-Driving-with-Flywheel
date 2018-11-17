@@ -14,7 +14,7 @@ extern pros::Motor m_Arm;
 
 extern pros::Controller JoystickMain;
 
-void FlywheelControl(void*);
+extern void FlywheelControl(void*);
 
 extern void autonomous_2(void*);
 
