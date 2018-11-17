@@ -52,7 +52,7 @@ void driverSimpleTask(void*)
 
     int arm_position = arm_lock.get_value();
 
-    if(simpleControlTaskOn)
+    if(driverControlTaskOn)
     {
 
       if(JoystickMain.get_digital(DIGITAL_R2))      //Intake

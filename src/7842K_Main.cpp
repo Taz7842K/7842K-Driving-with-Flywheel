@@ -9,20 +9,11 @@ void autonomous_4();
 void autonomous_5();
 void autonomous_6();
 
-void FlywheelControlTask(void*);
-void Joystickcontroltask(void*);
-void driverSimpleTask(void*);
-
-
-
-bool simpleControlTaskOn = false;
-
-bool baseControlTaskOn = false;
+bool driverControlTaskOn = false;
 
 void initialize()
 {
 pros::Task FlywheelControl_1(FlywheelControlTask, NULL, TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT, "FlywheelTask" );
-pros::Task BaseControl_1(Joystickcontroltask, NULL, TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT, "Joystickcontroltask" );
 pros::Task SimpleControls_1(driverSimpleTask, NULL, TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT, "SimpleControls" );
 }
 // -------------Initialize---------------------------------------------
