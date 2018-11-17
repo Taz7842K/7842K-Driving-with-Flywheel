@@ -18,7 +18,8 @@ int arm_limit = 350;
 void setBasePower(int, int); //Forward Declaration For Base Moving
 
 int FlywheelPower = 0;
-flywheelOn = false;
+bool flywheelOn = false;
+
 void FlywheelControlTask(void*)
 {
   while(true)
@@ -131,9 +132,9 @@ void FlywheelControlTask(void*)
     void MoveMotors(int rightspeed, int leftspeed)
     {
 
-     m_LeftFront.move(rightspeed*1);
-     m_RightFront.move(leftspeed*1);
-     m_LeftRear.move(rightspeed*1);
-     m_RightRear.move(leftspeed*1);
+     m_LeftFront.move(rightspeed);
+     m_RightFront.move(leftspeed);
+     m_LeftRear.move(rightspeed);
+     m_RightRear.move(leftspeed);
 
     }
