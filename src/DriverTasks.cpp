@@ -5,6 +5,14 @@ pros::Motor m_LeftFront(7);
 pros::Motor m_LeftRear(18);
 pros::Motor m_RightFront(11);
 pros::Motor m_RightRear(20);
+void setBasePower(int rightspeed, int leftspeed)
+{
+  m_LeftFront.move(rightspeed);
+  m_RightFront.move(leftspeed);
+  m_LeftRear.move(rightspeed);
+  m_RightRear.move(leftspeed);
+}
+
 pros::Motor m_Flywheel(10);
 pros::Motor m_Intake(9);
 pros::Motor m_Indexer(15);
@@ -14,8 +22,6 @@ pros::Controller JoystickMain(pros::E_CONTROLLER_MASTER);
 
 pros::ADIPotentiometer arm_lock('G');
 const int arm_limit = 350;
-
-void setBasePower(int, int); //Forward Declaration For Base Moving
 
 bool flywheelOn = false;
 
@@ -121,12 +127,4 @@ void driverSimpleTask(void*)
     }
 
   }
-}
-
-void setBasePower(int rightspeed, int leftspeed)
-{
-  m_LeftFront.move(rightspeed);
-  m_RightFront.move(leftspeed);
-  m_LeftRear.move(rightspeed);
-  m_RightRear.move(leftspeed);
 }
