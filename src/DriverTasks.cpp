@@ -1,35 +1,26 @@
 #include "main.h"
 #include "MainConfig.h"
 
-int Joystickch4;
-int Joystickch2;
-
 pros::Motor m_LeftFront(7);
 pros::Motor m_LeftRear(18);
 pros::Motor m_RightFront(11);
 pros::Motor m_RightRear(20);
-
-
 pros::Motor m_Flywheel(10);
-
 pros::Motor m_Intake(9);
 pros::Motor m_Indexer(15);
-
 pros::Motor m_Arm(14);
-
-int FlywheelPower = 0;
 
 pros::Controller JoystickMain(pros::E_CONTROLLER_MASTER);
 
 pros::ADIPotentiometer arm_lock('G');
-
 int arm_limit = 350;
 
-void MoveMotors(int,int);
+void setBasePower(int, int); //Forward Declaration For Base Moving
 
+int FlywheelPower = 0;
+flywheelOn = false;
 void FlywheelControlTask(void*)
 {
-flywheelOn = false;
   while(true)
   {
     if(flywheelOn)
@@ -52,6 +43,8 @@ flywheelOn = false;
 
   void driverSimpleTask(void*)
   {
+    int Joystickch4;
+    int Joystickch2;
 
     while(true)
     {
@@ -103,7 +96,7 @@ flywheelOn = false;
           Joystickch4 = JoystickMain.get_analog(ANALOG_LEFT_X);
           Joystickch2 = JoystickMain.get_analog(ANALOG_RIGHT_Y);
 
-          MoveMotors(Joystickch4 + Joystickch2, Joystickch4 - Joystickch2);
+          setBasePower(Joystickch4 + Joystickch2, Joystickch4 - Joystickch2);
         }
         /*
 
