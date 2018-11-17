@@ -126,11 +126,21 @@ flywheelOn = false;
           m_Indexer.move(0);
           m_Intake.move(0);
           m_Arm.move(0);
-          
+
         }
       }
 
       pros::delay(20);
 
       }
+    }
+
+    void MoveMotors(int rightspeed, int leftspeed)
+    {
+
+     m_LeftFront.move(rightspeed*1);
+     m_RightFront.move(leftspeed*1);
+     m_LeftRear.move(rightspeed*1);
+     m_RightRear.move(leftspeed*1);
+
     }
