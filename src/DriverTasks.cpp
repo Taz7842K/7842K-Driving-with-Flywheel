@@ -115,7 +115,7 @@ void driverSimpleTask(void*)
 }
 
 
-void MoveMotors(int rightspeed, int leftspeed)
+void setBasePower(int rightspeed, int leftspeed)
 {
   m_LeftFront.move(rightspeed);
   m_RightFront.move(leftspeed);

@@ -2,8 +2,6 @@
 #include "MainConfig.h"
 #include "AutoConfig.h"
 
-bool flywheelOn = true;
-
 void autonomous_6()
 {
   Motor intake(om_Intake);

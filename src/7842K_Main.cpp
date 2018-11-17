@@ -75,7 +75,6 @@ autonomous_6();
 
 void opcontrol()
 {
-  baseControlTaskOn = true;
-  simpleControlTaskOn = true;
+  driverControlTaskOn = true;
 }
 //------------opControl------------------------------------------------
