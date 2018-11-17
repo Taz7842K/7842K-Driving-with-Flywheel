@@ -14,6 +14,6 @@ extern pros::Motor m_Arm;
 
 extern pros::Controller JoystickMain;
 
-extern bool flywheelOn;
+bool flywheelOn;
 extern bool baseControlTaskOn;
 extern bool simpleControlTaskOn;
