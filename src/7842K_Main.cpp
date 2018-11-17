@@ -9,7 +9,6 @@ void autonomous_4();
 void autonomous_5();
 void autonomous_6();
 
-bool driverControlTaskOn = false;
 
 void initialize()
 {
@@ -19,7 +18,11 @@ pros::Task SimpleControls_1(driverSimpleTask, NULL, TASK_PRIORITY_DEFAULT, TASK_
 // -------------Initialize---------------------------------------------
 
 //--------------Disabled-----------------------------------------------
-void disabled() {}
+void disabled()
+{
+  flywheelOn = false;
+  driverControlTaskOn = false;
+}
 //--------------Disabled-----------------------------------------------
 
 //--------------Competition Initialize---------------------------------
@@ -29,6 +32,9 @@ void competition_initialize() {}
 //--------------Autonomous---------------------------------------------
 void autonomous()
 {
+  flywheelOn = true;
+  driverControlTaskOn = false;
+
 /*
 
   pros::ADIPotentiometer auto_switch('H');

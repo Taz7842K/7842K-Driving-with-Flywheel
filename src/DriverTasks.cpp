@@ -41,6 +41,7 @@ void FlywheelControlTask(void*)
   }
 }
 
+bool driverControlTaskOn = false;
 
 void driverSimpleTask(void*)
 {
@@ -50,10 +51,18 @@ void driverSimpleTask(void*)
   while(true)
   {
 
-    int arm_position = arm_lock.get_value();
+    m_Intake.move(0);
+    m_Intake.move(0);
+    m_Arm.move(0);
+    setBasePower(0, 0);
 
-    if(driverControlTaskOn)
+    while(!driverControlTaskOn) {pros::delay(20);}
+
+    while(driverControlTaskOn)
     {
+
+      int arm_position = arm_lock.get_value();
+
 
       if(JoystickMain.get_digital(DIGITAL_R2))      //Intake
       {
@@ -107,13 +116,12 @@ void driverSimpleTask(void*)
 
       setBasePower(Joystickch4 + Joystickch2, Joystickch4 - Joystickch2);
 
+
+      pros::delay(20);
     }
 
-    pros::delay(20);
   }
-
 }
-
 
 void setBasePower(int rightspeed, int leftspeed)
 {
