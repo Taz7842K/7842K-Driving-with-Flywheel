@@ -120,7 +120,7 @@ void driverSimpleTask(void*)
       Joystickch4 = JoystickMain.get_analog(ANALOG_LEFT_X);
       Joystickch2 = JoystickMain.get_analog(ANALOG_RIGHT_Y);
 
-      setBasePower(Joystickch4 + Joystickch2, Joystickch4 - Joystickch2);
+      setBasePower(Joystickch4 + Joystickch2 , Joystickch4 - Joystickch2 );
 
 
       pros::delay(20);
