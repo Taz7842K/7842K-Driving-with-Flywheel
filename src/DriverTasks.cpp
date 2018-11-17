@@ -1,6 +1,15 @@
 #include "main.h"
 #include "MainConfig.h"
 
+int Joystickch4;
+int Joystickch2;
+
+pros::Motor m_LeftFront(7);
+pros::Motor m_LeftRear(18);
+pros::Motor m_RightFront(11);
+pros::Motor m_RightRear(20);
+
+
 pros::Motor m_Flywheel(10);
 
 pros::Motor m_Intake(9);
@@ -16,7 +25,7 @@ pros::ADIPotentiometer arm_lock('G');
 
 int arm_limit = 350;
 
-
+void MoveMotors(int,int);
 
 void FlywheelControlTask(void*)
 {
@@ -89,6 +98,13 @@ flywheelOn = false;
           m_Arm.move(90);
         }
 
+        else if(baseControlTaskOn)
+        {
+          Joystickch4 = JoystickMain.get_analog(ANALOG_LEFT_X);
+          Joystickch2 = JoystickMain.get_analog(ANALOG_RIGHT_Y);
+
+          MoveMotors(Joystickch4 + Joystickch2, Joystickch4 - Joystickch2);
+        }
         /*
 
         else if (JoystickMain.get_digital(DIGITAL_LEFT))//Arm to horiz position
@@ -110,12 +126,8 @@ flywheelOn = false;
           m_Indexer.move(0);
           m_Intake.move(0);
           m_Arm.move(0);
+          
         }
-      }
-
-      else
-      {
-
       }
 
       pros::delay(20);
