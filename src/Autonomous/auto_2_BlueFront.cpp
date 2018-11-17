@@ -2,7 +2,7 @@
 #include "MainConfig.h"
 #include "AutoConfig.h"
 
-bool flywheelOn = true;
+
 
 void autonomous_2()
 {
@@ -18,7 +18,7 @@ void autonomous_2()
 
   chassis.moveDistance(47_in);// Hit low flag
     pros::delay(100);
-  chassis.moveDistance(-24_in);//move backward, in place to shoot flag
+  chassis.moveDistance(-32_in);//move backward, in place to shoot flag
     pros::delay(100);
 
     chassis.setMaxVelocity(100);
@@ -39,7 +39,7 @@ void autonomous_2()
 
   flywheelOn = false;
 
-  chassis.moveDistance(-25_in);   //badk up
+  chassis.moveDistance(-30_in);   //badk up
     pros::delay(100);
 
   chassis.turnAngle(-89_deg);    //turn towards red side
@@ -50,13 +50,15 @@ void autonomous_2()
 
     flywheelOn = true;
 
-  chassis.moveDistance(-40_in);    // go towards center coutr
+  chassis.moveDistance(-33_in);    // go towards center coutr
     pros::delay(100);
 
-      intake.moveVelocity(0);
+
 
   chassis.turnAngle(105_deg);      //turn towards flag
   pros::delay(100);
+
+  intake.moveVelocity(0);
 
   chassis.moveDistance(10_in);
     pros::delay(100);

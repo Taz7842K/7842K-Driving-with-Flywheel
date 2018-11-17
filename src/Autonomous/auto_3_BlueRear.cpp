@@ -19,7 +19,7 @@ void autonomous_3()
 
   chassis.moveDistance(-50_in); //moves forward to knock cap over
 
-    pros::delay(800);           //stops briefly to knock cap
+    //pros::delay(800);           //stops briefly to knock cap
 
   intake.moveVelocity(0);
 
@@ -41,5 +41,5 @@ void autonomous_3()
 
     chassis.setMaxVelocity(200);
 
-  chassis.moveDistance(60_in);//drive onto center platform
+  chassis.moveDistance(60_in * 1.25);//drive onto center platform
 }

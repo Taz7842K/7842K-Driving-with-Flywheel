@@ -2,7 +2,7 @@
 #include "MainConfig.h"
 #include "AutoConfig.h"
 
-
+bool flywheelOn = true;
 
 void autonomous_6()
 {
@@ -11,6 +11,99 @@ void autonomous_6()
   okapi::ChassisControllerIntegrated chassis = ChassisControllerFactory::create( {om_leftfront, om_leftrear},{om_rightfront, om_rightrear},
   AbstractMotor::gearset::green, {WHEEL_DIAMETER, CHASSIS_WIDTH});
 
+
+    chassis.setMaxVelocity(150);
+      pros::delay(100);
+
+      flywheelOn = true;
+
+    chassis.moveDistance(47_in);// Hit low flag
+      pros::delay(100);
+    chassis.moveDistance(-32_in);//move backward, in place to shoot flag
+      pros::delay(100);
+
+      chassis.setMaxVelocity(100);
+        pros::delay(100);
+
+    chassis.turnAngle(-7_deg);   //turn slightly to aim for flag
+      pros::delay(100);
+
+    intake.moveRelative(-1800,200);//run intake to shoot ball
+    indexer.moveRelative(-1800,200);//run indexer to shoot ball
+        pros::delay(300);
+
+      chassis.turnAngle(7_deg);   //turn back
+            pros::delay(100);
+
+    chassis.setMaxVelocity(150);
+      pros::delay(100);
+
+    flywheelOn = false;
+
+      chassis.moveDistance(-40_in);//move backward, in line with platforms
+        pros::delay(200);
+      chassis.turnAngle(-90_deg);//turn to face platforms
+        pros::delay(200);
+
+      chassis.setMaxVelocity(200);
+
+      chassis.moveDistance(60_in * 1.25);//drive onto center platform
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
     flywheelOn = true;
 
       chassis.setMaxVelocity(130);
@@ -40,6 +133,6 @@ void autonomous_6()
     chassis.turnAngle(-90_deg);
 
     chassis.moveDistance(49_in);
-
+*/
 
 }
