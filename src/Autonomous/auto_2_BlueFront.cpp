@@ -39,7 +39,7 @@ void autonomous_2()
 
   flywheelOn = false;
 
-  chassis.moveDistance(-30_in);   //badk up
+  chassis.moveDistance(-20_in);   //badk up
     pros::delay(100);
 
   chassis.turnAngle(-89_deg);    //turn towards red side
@@ -55,7 +55,7 @@ void autonomous_2()
 
 
 
-  chassis.turnAngle(105_deg);      //turn towards flag
+  chassis.turnAngle(107_deg);      //turn towards flag
   pros::delay(100);
 
   intake.moveVelocity(0);

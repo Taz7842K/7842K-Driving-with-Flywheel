@@ -2,7 +2,7 @@
 #include "MainConfig.h"
 #include "AutoConfig.h"
 
-
+bool flywheelOn = true;
 
 void autonomous_4()
 {
@@ -42,7 +42,7 @@ void autonomous_4()
   chassis.moveDistance(-20_in);   //badk up
     pros::delay(100);
 
-  chassis.turnAngle(89_deg);    //turn towards red side
+  chassis.turnAngle(89_deg);    //turn towards blue side
     pros::delay(100);
 
   intake.moveVelocity(-115);     //start intake
@@ -55,7 +55,7 @@ void autonomous_4()
 
 
 
-  chassis.turnAngle(-105_deg);      //turn towards flag
+  chassis.turnAngle(-107_deg);      //turn towards flag
   pros::delay(100);
 
   chassis.moveDistance(20_in);
