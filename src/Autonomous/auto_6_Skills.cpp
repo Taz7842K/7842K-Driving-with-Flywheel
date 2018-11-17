@@ -2,7 +2,7 @@
 #include "MainConfig.h"
 #include "AutoConfig.h"
 
-void autonomous_6()
+svoid autonomous_6()
 {
   Motor intake(om_Intake);
   Motor indexer(om_Indexer);
