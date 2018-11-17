@@ -24,7 +24,7 @@ void Joystickcontroltask(void*)
     Joystickch4 = JoystickMain.get_analog(ANALOG_LEFT_X);
     Joystickch2 = JoystickMain.get_analog(ANALOG_RIGHT_Y);
 
-    MoveMotors(Joystickch2 + Joystickch4, Joystickch2 - Joystickch4);
+    MoveMotors(Joystickch4 + Joystickch2, Joystickch4 - Joystickch2);
 
    }
    else

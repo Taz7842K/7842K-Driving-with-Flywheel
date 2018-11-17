@@ -155,7 +155,7 @@
             "-isystemc:\\users\\tazol\\appdata\\local\\programs\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\users\\tazol\\appdata\\local\\programs\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
-            "-iquote./include/./",
+            "-iquote./include/Autonomous/",
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -168,11 +168,11 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "bin/JoystickTasks.cpp.o",
-            "src\\JoystickTasks.cpp"
+            "bin/Autonomous/auto_4_RedFront.cpp.o",
+            "src\\Autonomous\\auto_4_RedFront.cpp"
         ],
         "directory": "C:\\Users\\tazol\\Documents\\7842K\\Pros\\7842K Shawnigan Comp",
-        "file": "src\\JoystickTasks.cpp"
+        "file": "src\\Autonomous\\auto_4_RedFront.cpp"
     },
     {
         "arguments": [
@@ -203,11 +203,11 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "bin/Autonomous/auto_4_RedFront.cpp.o",
-            "src\\Autonomous\\auto_4_RedFront.cpp"
+            "bin/Autonomous/auto_2_BlueFront.cpp.o",
+            "src\\Autonomous\\auto_2_BlueFront.cpp"
         ],
         "directory": "C:\\Users\\tazol\\Documents\\7842K\\Pros\\7842K Shawnigan Comp",
-        "file": "src\\Autonomous\\auto_4_RedFront.cpp"
+        "file": "src\\Autonomous\\auto_2_BlueFront.cpp"
     },
     {
         "arguments": [
@@ -260,7 +260,7 @@
             "-isystemc:\\users\\tazol\\appdata\\local\\programs\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\users\\tazol\\appdata\\local\\programs\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
-            "-iquote./include/Autonomous/",
+            "-iquote./include/./",
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -273,10 +273,10 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "bin/Autonomous/auto_2_BlueFront.cpp.o",
-            "src\\Autonomous\\auto_2_BlueFront.cpp"
+            "bin/JoystickTasks.cpp.o",
+            "src\\JoystickTasks.cpp"
         ],
         "directory": "C:\\Users\\tazol\\Documents\\7842K\\Pros\\7842K Shawnigan Comp",
-        "file": "src\\Autonomous\\auto_2_BlueFront.cpp"
+        "file": "src\\JoystickTasks.cpp"
     }
 ]
