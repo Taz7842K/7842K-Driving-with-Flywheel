@@ -2,7 +2,7 @@
 #include "MainConfig.h"
 #include "AutoConfig.h"
 
-
+bool flywheelOn = true;
 
 void autonomous_2()
 {

@@ -4,7 +4,7 @@
 int Joystickch4;
 int Joystickch2;
 
-bool joystickToggle = false;
+
 
 pros::Motor m_LeftFront(7);
 pros::Motor m_LeftRear(18);
@@ -24,7 +24,7 @@ void Joystickcontroltask(void*)
     Joystickch4 = JoystickMain.get_analog(ANALOG_LEFT_X);
     Joystickch2 = JoystickMain.get_analog(ANALOG_RIGHT_Y);
 
-    MoveMotors(Joystickch4 + Joystickch2, Joystickch4 - Joystickch2);
+    MoveMotors(Joystickch2 + Joystickch4, Joystickch2 - Joystickch4);
 
    }
    else
@@ -39,11 +39,11 @@ void Joystickcontroltask(void*)
 
 void MoveMotors(int rightspeed, int leftspeed)
 {
-  if(joystickToggle = false)
-  {
+
+
  m_LeftFront.move(rightspeed*1);
  m_RightFront.move(leftspeed*1);
  m_LeftRear.move(rightspeed*1);
  m_RightRear.move(leftspeed*1);
-  }
+
 }
