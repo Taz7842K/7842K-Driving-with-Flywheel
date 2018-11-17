@@ -8,41 +8,39 @@ void autonomous_4()
 {
   Motor intake(om_Intake);
   Motor indexer(om_Indexer);
-  okapi::ChassisControllerIntegrated chassis = ChassisControllerFactory::create( {om_leftfront, om_leftrear},{om_rightfront, om_rightrear},
-  AbstractMotor::gearset::green, {WHEEL_DIAMETER, CHASSIS_WIDTH});
 
-  chassis.setMaxVelocity(150);
+  chassis->setMaxVelocity(150);
     pros::delay(100);
 
     flywheelOn = true;
 
-  chassis.moveDistance(47_in);// Hit low flag
+  chassis->moveDistance(47_in);// Hit low flag
     pros::delay(100);
-  chassis.moveDistance(-32_in);//move backward, in place to shoot flag
+  chassis->moveDistance(-32_in);//move backward, in place to shoot flag
     pros::delay(100);
 
-    chassis.setMaxVelocity(100);
+    chassis->setMaxVelocity(100);
       pros::delay(100);
 
-  chassis.turnAngle(-7_deg);   //turn slightly to aim for flag
+  chassis->turnAngle(-7_deg);   //turn slightly to aim for flag
     pros::delay(100);
 
   intake.moveRelative(-1800,200);//run intake to shoot ball
   indexer.moveRelative(-1800,200);//run indexer to shoot ball
       pros::delay(300);
 
-    chassis.turnAngle(7_deg);   //turn back
+    chassis->turnAngle(7_deg);   //turn back
           pros::delay(100);
 
-  chassis.setMaxVelocity(150);
+  chassis->setMaxVelocity(150);
     pros::delay(100);
 
   flywheelOn = false;
 
-  chassis.moveDistance(-20_in);   //badk up
+  chassis->moveDistance(-20_in);   //badk up
     pros::delay(100);
 
-  chassis.turnAngle(89_deg);    //turn towards red side
+  chassis->turnAngle(89_deg);    //turn towards red side
     pros::delay(100);
 
   intake.moveVelocity(-115);     //start intake
@@ -50,15 +48,15 @@ void autonomous_4()
 
     flywheelOn = true;
 
-  chassis.moveDistance(-33_in);    // go towards center coutr
+  chassis->moveDistance(-33_in);    // go towards center coutr
     pros::delay(100);
 
 
 
-  chassis.turnAngle(-105_deg);      //turn towards flag
+  chassis->turnAngle(-105_deg);      //turn towards flag
   pros::delay(100);
 
-  chassis.moveDistance(20_in);
+  chassis->moveDistance(20_in);
     pros::delay(100);
 
    intake.moveVelocity(0);
@@ -70,13 +68,13 @@ void autonomous_4()
       flywheelOn = false;
 
 /*
-  chassis.moveDistance(-32_in);//move backward, in line with platforms
+  chassis->moveDistance(-32_in);//move backward, in line with platforms
     pros::delay(200);
-  chassis.turnAngle(90_deg);//turn to face platforms
+  chassis->turnAngle(90_deg);//turn to face platforms
     pros::delay(200);
 
-  chassis.setMaxVelocity(200);
+  chassis->setMaxVelocity(200);
 
-  chassis.moveDistance(60_in);//drive onto center platform
+  chassis->moveDistance(60_in);//drive onto center platform
 */
 }

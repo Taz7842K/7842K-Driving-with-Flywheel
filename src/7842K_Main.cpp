@@ -1,6 +1,6 @@
 #include "main.h"
 #include "MainConfig.h"
-
+#include "AutoConfig.h"
 
 //--------------Initialize--------------------------------------------
 void autonomous_2();
@@ -9,6 +9,9 @@ void autonomous_4();
 void autonomous_5();
 void autonomous_6();
 
+
+std::shared_ptr<ChassisControllerIntegrated> chassis = ChassisControllerFactory::createPtr( {om_leftfront, om_leftrear},{om_rightfront, om_rightrear},
+AbstractMotor::gearset::green, {WHEEL_DIAMETER, CHASSIS_WIDTH});
 
 void initialize()
 {
@@ -22,6 +25,7 @@ void disabled()
 {
   flywheelOn = false;
   driverControlTaskOn = false;
+  chassis->stop();
 }
 //--------------Disabled-----------------------------------------------
 
@@ -32,7 +36,6 @@ void competition_initialize() {}
 //--------------Autonomous---------------------------------------------
 void autonomous()
 {
-  flywheelOn = true;
   driverControlTaskOn = false;
 
 /*
@@ -81,6 +84,7 @@ autonomous_6();
 
 void opcontrol()
 {
+  chassis->stop();
   driverControlTaskOn = true;
 }
 //------------opControl------------------------------------------------

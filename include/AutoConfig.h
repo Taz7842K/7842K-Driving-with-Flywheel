@@ -1,5 +1,9 @@
 #include "main.h"
 
+
+extern std::shared_ptr<ChassisControllerIntegrated> chassis;
+
+
 const int om_leftfront = -7;
 const int om_leftrear = -18;
 const int om_rightfront = 11;
