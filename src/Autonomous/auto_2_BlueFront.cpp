@@ -50,7 +50,7 @@ void autonomous_2()
 
     flywheelOn = true;
 
-  chassis.moveDistance(-33_in);    // go towards center coutr
+  chassis.moveDistance(-39_in);    // go towards center coutr
     pros::delay(100);
 
 

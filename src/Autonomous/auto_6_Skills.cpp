@@ -4,7 +4,7 @@
 
 
 
-void autonomous_6()
+void autonomous_6() 
 {
   Motor intake(om_Intake);
   Motor indexer(om_Indexer);
@@ -40,7 +40,7 @@ void autonomous_6()
 
     flywheelOn = false;
 
-      chassis.moveDistance(-40_in);//move backward, in line with platforms
+      chassis.moveDistance(-39_in);//move backward, in line with platforms
         pros::delay(200);
       chassis.turnAngle(-90_deg);//turn to face platforms
         pros::delay(200);
