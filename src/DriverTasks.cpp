@@ -13,15 +13,15 @@ pros::Motor m_Arm(14);
 pros::Controller JoystickMain(pros::E_CONTROLLER_MASTER);
 
 pros::ADIPotentiometer arm_lock('G');
-int arm_limit = 350;
+const int arm_limit = 350;
 
 void setBasePower(int, int); //Forward Declaration For Base Moving
 
-int FlywheelPower = 0;
 bool flywheelOn = false;
 
 void FlywheelControlTask(void*)
 {
+  int FlywheelPower = 0;
   while(true)
   {
     if(flywheelOn)
@@ -101,8 +101,6 @@ void driverSimpleTask(void*)
       {
         m_Arm.move(0);
       }
-
-
 
       Joystickch4 = JoystickMain.get_analog(ANALOG_LEFT_X);
       Joystickch2 = JoystickMain.get_analog(ANALOG_RIGHT_Y);
