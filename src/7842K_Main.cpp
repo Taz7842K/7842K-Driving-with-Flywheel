@@ -38,7 +38,6 @@ void autonomous()
 {
   driverControlTaskOn = false;
 
-/*
 
   pros::ADIPotentiometer auto_switch('H');
 
@@ -69,7 +68,6 @@ void autonomous()
     autonomous_6();
   }
 
-*/
 
 
 
